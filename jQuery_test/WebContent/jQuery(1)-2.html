@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>  
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<!-- 导入jQuery 库 -->
+	<script type="text/javascript" src="script/jquery-1.7.2.js" ></script>
+	<script type="text/javascript">
+		//$(function(){})相当于window.onload，代码写在{}之间
+		$(function(){
+			//1. 选取button: $("button")
+			//2. 为button 添加onclick响应函数: $("button").click(function){});
+			//3. 代码编写在function的{}中。
+			$("button").click(function(){
+				//3. 弹出helloworld
+				alert("helloWorld");
+			});
+		})
+	</script>
+</head>
+<body>
+	<button>ClickMe</button>
+</body>
+</html>

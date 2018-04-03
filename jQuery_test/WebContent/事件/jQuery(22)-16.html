@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		#content{
+			color:black;
+			background:green;
+			width:200px;
+		}
+	</style>
+	<!-- 导入jQuery 库 -->
+	<script type="text/javascript" src="script/jquery-1.7.2.js" ></script>
+	<script type="text/javascript">
+		//$(function(){})相当于window.onload，代码写在{}之间
+		
+		$(function(){
+			//事件的冒泡：什么是事件的冒泡
+			$("body").click(function(){
+				alert("body click");
+			});
+			$("#content").click(function(){
+				alert("div click");
+			});
+			$("span").click(function(){
+				alert("span click");
+				//如何解决事件的冒泡：通过在响应函数的结尾返回false，可以阻止冒泡
+				return false;
+			});
+			
+			 
+			
+		});
+		 
+		
+	</script>
+</head>
+<body>
+	<div id="content">
+		外层div元素<br/>
+		<span>内层span元素</span><br/>
+		外层div元素
+	</div>
+	<div id="msg"></div>
+	<br/><br/>
+	
+	<a href="http://www.hao123.com">WWW.HAO123.COM</a>
+	
+</body>
+</html>

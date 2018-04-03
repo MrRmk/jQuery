@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<!-- 导入jQuery 库 -->
+	<script type="text/javascript" src="script/jquery-1.7.2.js" ></script>
+	<script type="text/javascript">
+		//$(function(){})相当于window.onload，代码写在{}之间
+		
+		//测试使用Jquery ： replaceWith(replaceAll)方法：(替换节点)
+		/*
+		1. replaceWith , replaceAll 一对方法，可以完成一件事，就是主语
+		宾语哪个在前面的问题
+		2. 以上的两个方法还有移动节点的功能
+		3. 节点互换需要先克隆节点
+		4. (互换返回谁)var $rl = $("#rl").replaceWith($bj2);
+		*/
+		$(function(){
+			//把li封装一下，打印出文本值
+			function showContent(li){
+				alert($(li).text());
+			}
+			//使所有的li的click都能打印当前文本值
+			$("li").click(function(){
+				showContent(this);
+			});
+			
+			
+			//需求：1、创建一个<li>尚硅谷</li> 节点，替换#city 的最后一个li 子节点
+			$("<li>尚硅谷</li>").replaceAll($("#city li:last")).click(function(){
+																showContent(this);
+																});
+			
+			//2、创建一个<li>尚硅谷</li> 节点，替换#city 的第二个li 子节点
+			//$("#city li:eq(1)").replaceWith($("<li>[尚硅谷]</li>"));
+			
+			//3、互换以下两个节点：#rl 和 #bj  --(直接替换的话，不但替换，还有移动的功能)
+			//$("#bj").replaceWith($("#rl"));
+			
+			//节点互换需要先克隆节点
+			alert(1);
+			var $bj2 = $("#bj").clone(true);
+			var $rl = $("#rl").replaceWith($bj2).click(function(){
+													showContent(this);
+												});
+			
+			alert(2);
+			$("#bj").replaceWith($rl).click(function(){
+										showContent(this);
+									});
+		});
+		 
+		
+	</script>
+</head>
+<body>
+	
+	<p>你喜欢哪个城市？</p>
+	<ul id="city" >
+		<li id="bj" name="BeiJing " >北京</li>
+		<li id="sh" >上海</li>
+		<li id="dj" >东京</li>
+		<li id="se" >首尔</li>
+	</ul>
+	
+	<p>你喜欢哪款单机游戏？</p>
+	<ul id="game" >
+		<li id="rl" >红警</li>
+		<li id="sk" >实况</li>
+		<li id="jpfc" >极品飞车</li>
+		<li id="ms" >魔兽</li>
+	</ul>
+	<br><br>
+	
+	<form action="jQuery-6.html" name="myform" >
+		<input type="radio" value="city" name="type" />城市
+		<input type="radio" value="game" name="type" />游戏
+		
+		name:<input type="text" name="name"  />
+		
+		<input type="submit" id="submit" value="Submit" />
+		
+	</form>
+	
+	
+</body>
+</html>

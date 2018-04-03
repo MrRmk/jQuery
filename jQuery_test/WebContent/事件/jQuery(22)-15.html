@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		.head{
+			/* color:black; */
+			background:#7FFF00;
+			text-align:center;
+			line-height:30px;
+			width:200px;
+			height:30px;
+			margin-bottom:0px;
+			border:1px solid green;
+		}
+		.content{
+			margin-top:0px;
+			width:200px;
+			background:white;
+			border:1px solid green;
+			background: linear-gradient(to bottom, #000000 0%,#7FFF00 2%);
+		}
+	</style>
+	<!-- 导入jQuery 库 -->
+	<script type="text/javascript" src="../script/jquery-1.7.2.js" ></script>
+	<script type="text/javascript">
+		//$(function(){})相当于window.onload，代码写在{}之间
+		
+		//为 .head 添加 onclick 响应函数：若 .content 隐藏则显示，
+		//若 .content 显示则隐藏
+		$(function(){
+			/* 
+			//1、
+			$(".head").click(function(){
+				//使用 is() 方法，来判断某个给定的jQuery 对象
+				//是否符合指定的选择器
+				var flag = $(".content").is(":hidden");
+				
+				if( flag ){
+					//show()方法：使隐藏的变为显示
+					$(".content").show();
+				}else{
+					$(".content").hide();
+				}
+			}); */
+			
+			
+			/* 
+			//2、bind: 为某jQuery 对象绑定事件
+			$(".head").bind("click",function(){
+				//使用 is() 方法，来判断某个给定的jQuery 对象
+				//是否符合指定的选择器
+				var flag = $(".content").is(":hidden");
+				  
+				if( flag ){
+					//show()方法：使隐藏的变为显示
+					$(".content").show();
+				}else{
+					$(".content").hide();
+				}
+			}); */
+			
+			//3、方法合成：悬停
+			//mouseover: 鼠标移上去
+			//mouseout: 鼠标移出去
+			/* $(".head").mouseover(function(){
+				$(".content").show();
+			}).mouseout(function(){
+				$(".content").hide();
+			}); */
+			
+			/* //4、合成事件: hover:鼠标移上去执行第一个函数，移出执行第二个函数
+			$(".head").hover(function(){
+				$(".content").show();
+			}, function(){
+				$(".content").hide();
+			});  */
+			
+			//5、合成事件: togger: 第一次点击执行第一个函数，
+			//第二次点击执行第二个函数 。。。循环执行
+			$(".head").toggle(function(){
+				$(".content").show();
+			}, function(){
+				$(".content").hide();
+			});
+			
+		});
+		 
+		
+	</script>
+</head>
+<body>
+	<div>
+		<h5 class="head" >什么是jQuery?</h5>
+		<div class="content">
+			jQuery是继Prototype之后又一个优秀的JavaScript库 ，它是一个由John Resig 创建于2006年1月的开源项目。jQuery凭 
+		</div>
+	</div>
+	
+</body>
+</html>

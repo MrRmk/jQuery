@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<!-- 导入jQuery 库 -->
+	<script type="text/javascript" src="script/jquery-1.7.2.js" ></script>
+	<script type="text/javascript">
+		//$(function(){})相当于window.onload，代码写在{}之间
+		
+		//测试使用Jquery 删除节点
+		
+		$(function(){
+			//1、为#city 的每一个li 添加一个click 响应函数；点击时， li 被删除
+			//$("#city li").click(function(){
+			//	$(this).remove();//把this转为jQuery对象，调用remove()方法  
+			//});
+			
+			//jQuery 对象的remove()方法： 将把jQuery 对象对应的
+			//DOM 节点直接删除。
+			$("#bj").remove();
+			
+			//2、清空 #game 节点
+			//jQuery对象的empty() 方法：清空jQuery对应的DOM对象的所有的子节点
+			alert("要清空了!");
+			$("#game").empty();
+		});
+	</script>
+</head>
+<body>
+	
+	<p>你喜欢哪个城市？</p>
+	<ul id="city" >
+		<li id="bj" name="BeiJing " >北京</li>
+		<li id="sh" >上海</li>
+		<li id="dj" >东京</li>
+		<li id="se" >首尔</li>
+	</ul>
+	
+	<p>你喜欢哪款单机游戏？</p>
+	<ul id="game" >
+		<li id="hj" >红警</li>
+		<li id="sk" >实况</li>
+		<li id="jpfc" >极品飞车</li>
+		<li id="ms" >魔兽</li>
+	</ul>
+	<br><br>
+	
+	<form action="jQuery-6.html" name="myform" >
+		<input type="radio" value="city" name="type" />城市
+		<input type="radio" value="game" name="type" />游戏
+		
+		name:<input type="text" name="name"  />
+		
+		<input type="submit" id="submit" value="Submit" />
+		
+	</form>
+	
+	
+</body>
+</html>

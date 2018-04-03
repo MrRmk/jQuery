@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<!-- 导入jQuery 库 -->
+	<script type="text/javascript" src="script/jquery-1.7.2.js" ></script>
+	<script type="text/javascript">
+		//$(function(){})相当于window.onload，代码写在{}之间
+		
+		//测试使用Jquery (克隆节点)： clone方法：复制节点(clone(true),具备事件)
+		$(function(){
+			
+			$("li").click(function(){
+				alert($(this).text());
+			});
+			
+			//复制 #bj 节点，并添加到#rl 节点的后面(复制时，对id重新赋值: .attr("id","bj2") )
+			/*
+			1. clone 节点时需要注意克隆后的节点的id属性，若原节点有id属性，
+			则克隆后，会出现在一个文档中有两个id相同的节点的情况。
+			2. clone(true)：克隆节点的同时，克隆节点包含的事件。
+			*/
+			$("#bj").clone(true)
+					.attr("id","bj2")//克隆之后再对id重新赋值
+					.insertAfter("#rl");
+			
+		});
+	</script>
+</head>
+<body>
+	
+	<p>你喜欢哪个城市？</p>
+	<ul id="city" >
+		<li id="bj" name="BeiJing " >北京</li>
+		<li id="sh" >上海</li>
+		<li id="dj" >东京</li>
+		<li id="se" >首尔</li>
+	</ul>
+	
+	<p>你喜欢哪款单机游戏？</p>
+	<ul id="game" >
+		<li id="rl" >红警</li>
+		<li id="sk" >实况</li>
+		<li id="jpfc" >极品飞车</li>
+		<li id="ms" >魔兽</li>
+	</ul>
+	<br><br>
+	
+	<form action="jQuery-6.html" name="myform" >
+		<input type="radio" value="city" name="type" />城市
+		<input type="radio" value="game" name="type" />游戏
+		
+		name:<input type="text" name="name"  />
+		
+		<input type="submit" id="submit" value="Submit" />
+		
+	</form>
+	
+	
+</body>
+</html>

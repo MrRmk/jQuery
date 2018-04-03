@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<!-- 导入jQuery 库 -->
+	<script type="text/javascript" src="script/jquery-1.7.2.js" ></script>
+	<script type="text/javascript">
+		//$(function(){})相当于window.onload，代码写在{}之间
+		
+		//加载DOM 的两种方式：jQuery 和 windows.onload
+		$(document).ready(function(){//缩写$(function(){		});
+			alert(1);
+		});
+		$(document).ready(function(){//可以写多个
+			alert(2);
+		});
+		
+		window.onload = function(){//赋值  只能写一个
+			alert(3);
+		}
+		
+		
+	</script>
+</head>
+<body>
+	
+	
+</body>
+</html>

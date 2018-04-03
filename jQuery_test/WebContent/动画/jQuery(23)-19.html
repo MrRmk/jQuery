@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		.head{
+			/* color:black; */
+			background:#7FFF00;
+			text-align:center;
+			line-height:30px;
+			width:200px;
+			height:30px;
+			margin-bottom:0px;
+			border:1px solid green;
+		}
+		.content{
+			margin-top:0px;
+			width:200px;
+			background:white;
+			border:1px solid green;
+			background: linear-gradient(to bottom, #000000 0%,#7FFF00 2%);
+		}
+	</style>  
+	<style type="text/css">
+		#content{
+			color:black;
+			background:green;
+			width:200px;
+		}
+	</style>
+	<!-- 导入jQuery 库 -->
+	<script type="text/javascript" src="../script/jquery-1.7.2.js" ></script>
+	<script type="text/javascript">
+		//$(function(){})相当于window.onload，代码写在{}之间
+		
+		//演示动画效果：show() 和 hide() 方法中传入毫秒数以达到动画的效果
+		/* $(function(){
+			$(".head").toggle(function(){
+				$(".content").show(1000);
+			}, function(){
+				$(".content").hide(1000);
+			});
+		}); */
+		
+		//只改变高度
+		/* $(function(){
+			$(".head").toggle(function(){
+				$(".content").slideDown(500);
+			}, function(){
+				$(".content").slideUp(500);
+			});
+		}); */
+		
+		//只改变透明度
+		/*
+		$(function(){
+			$(".head").toggle(function(){
+				$(".content").fadeIn();
+			}, function(){
+				$(".content").fadeOut();
+			});
+		}); 
+		*/
+		
+		//toggle() 可以切换元素的可见状态
+		//slideToggle(): 通过高度变化来切换元素的可见性
+		//fadeToggle(): 通过透明度来切换元素的可见性
+		//fadeTo():把不透明度以渐进的方式调整到指定的值(0 - 1之间)。
+		$(function(){
+			/* $(".content").show();
+			var i = 1; */
+			
+			$(".head").click(function(){
+				//$(".content").toggle();
+				$(".content").slideToggle();
+				//$(".content").fadeToggle();
+				
+				/* $(".content").fadeTo("slow",i);
+				i = i - 0.5; */
+			});
+		}); 
+		
+		
+	</script>
+</head>
+<body>
+
+	<div id="panel" >
+		<h5 class="head" >什么是jQuery?</h5>
+		<div class="content">
+			jQuery是继Prototype之后又一个优秀的JavaScript库 ，它是一个由John Resig 创建于2006年1月的开源项目。jQuery凭 
+		</div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<!-- 导入jQuery 库 -->
+	<script type="text/javascript" src="script/jquery-1.7.2.js" ></script>
+	<script type="text/javascript">
+		//$(function(){})相当于window.onload，代码写在{}之间
+		$(function(){
+			/*
+			1)、jQuery对象可以进行隐式迭代: $("p").click(function(){...});
+			为选取的所有的p 节点添加了click响应函数，jQuery对象本身就是一个DOM对象数组
+			2)、在响应函数中，this 是一个 DOM对象， 若要使用jQuery对象的方法需要把其包装为
+			jQuery对象： 使用$() 把this 包起来
+			3)、text() 方法是一个读写方法：不加任何参数，读取文本值; 
+			  加参数为： 属性节点添加文本值(文本节点) 
+			*/
+			
+			//1、点击所有的p节点，能够弹出其对应的内容
+			$("p").click(function(){
+				//alert(this.firstChild.nodeValue);//this是DOM对象
+				alert($(this).text());//把this转为jQuery对象
+				$(this).text("^^"+$(this).text());//设置text()文本值
+			});
+			  
+			//2、使第一个table 隔行变色
+			$("table:first tr:even").css("background", "#ffaacc");
+			
+			//3、点击button，弹出checkbox 被选中的个数
+			$("button").click(function(){
+				alert($(":checkbox:checked").length);
+			});
+			
+		});
+	</script>
+</head>
+<body>
+	
+	<p>段落1</p>
+	<p>段落2</p>
+	<p>段落3</p>
+	
+	<table>
+		<tr>
+			<td>第一行</td><td>第一行</td>
+		</tr>
+		<tr>
+			<td>第二行</td><td>第二行</td>
+		</tr>
+		<tr>
+			<td>第三行</td><td>第三行</td>
+		</tr>
+		<tr>
+			<td>第四行</td><td>第四行</td>
+		</tr>
+		<tr>
+			<td>第五行</td><td>第五行</td>
+		</tr>
+		<tr>
+			<td>第六行</td><td>第六行</td>
+		</tr>
+	</table>
+	
+	<table>
+		<tr>
+			<td>第一行</td><td>第一行</td>
+		</tr>
+		<tr>
+			<td>第二行</td><td>第二行</td>
+		</tr>
+		<tr>
+			<td>第三行</td><td>第三行</td>
+		</tr>
+		<tr>
+			<td>第四行</td><td>第四行</td>
+		</tr>
+		<tr>
+			<td>第五行</td><td>第五行</td>
+		</tr>
+		<tr>
+			<td>第六行</td><td>第六行</td>
+		</tr>
+	</table>
+	
+	<input type="checkbox" name="test" />
+	<input type="checkbox" name="test" />
+	<input type="checkbox" name="test" />
+	<input type="checkbox" name="test" />
+	<input type="checkbox" name="test" />
+	<input type="checkbox" name="test" />
+	
+	<button>你选中的个数</button>
+</body>
+</html>

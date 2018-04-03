@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<!-- 导入jQuery 库 -->
+	<script type="text/javascript" src="script/jquery-1.7.2.js" ></script>
+	<script type="text/javascript">
+		//$(function(){})相当于window.onload，代码写在{}之间
+		
+		
+		//***(jQuery_创建节点及插入节点)*********************
+		//测试使用JQuery 插入节点(1)[子节点]
+		$(function(){
+			//$("#city").append("<li id='atguigu' >尚硅谷</li>");
+			//$("<li id='atguigu' >[尚硅谷]</li>").appendTo($("#city"));
+			
+			//$("#city").prepend($("<li id='atguigu' >尚硅谷</li>"));
+			$("<li id='atguigu' >[尚硅谷]</li>").prependTo($("#city"));
+			
+			alert($("#atguigu").text());
+		});
+	</script>
+</head>
+<body>
+	
+	<p>你喜欢的城市是？</p>
+	<ul id="city" >
+		<li id="bj" >北京</li>
+		<li id="sh" >上海</li>
+		<li id="tj" >天津</li>
+		<li id="dj" >东京</li>
+	</ul>
+	
+	
+	
+	<input type="checkbox" name="test" />
+	<input type="checkbox" name="test" />
+	<input type="checkbox" name="test" />
+	<input type="checkbox" name="test" />
+	<input type="checkbox" name="test" />
+	<input type="checkbox" name="test" />
+	
+	<button>你选中的个数</button>
+</body>
+</html>

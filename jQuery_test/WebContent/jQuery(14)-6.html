@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<!-- 导入jQuery 库 -->
+	<script type="text/javascript" src="script/jquery-1.7.2.js" ></script>
+	<script type="text/javascript">
+		//***(jQuery_重写JS实验之分类添加内容)*********************
+		//需求：点击Submit 按钮时，检查是否选择type,若没有选择给出提示："请选择类型"；
+		//		检查文本框中是否有输入(可以去除前后空格)，若没有输入，则给出提示："请输入内容"；
+		//若检查都通过，则在相应的 ul 节点中添加对应的 li 加节点
+		//需求2： 使包括新增的 li 都能响应 onclick 事件：弹出 li 的文本值。
+		$(function(){//$(function(){})相当于window.onload，代码写在{}之间
+			
+			function showContent(li){
+				alert($(li).text());
+			}
+			$("li").click(function(){
+				showContent(this);
+			});
+			
+			$(":submit").click(function(){
+				//radio有没有被选中的
+				var $type = $(":radio[name='type']:checked");
+				if( $type.length == 0 ){
+					alert("请选择类型!");
+					return false;
+				}
+				
+				var type = $type.val();
+				
+				var $name = $(":text[name='name']");
+				var name =  $name.val();
+				
+				//$.trim(str): 可以去除 str 的前后空格。
+				name = $.trim(name);
+				if( name == "" ){
+					alert("请输入内容!");
+					return false;
+				}
+				
+				$("<li>" + name + "</li>").appendTo($("#"+type))
+										  .click(function(){
+										   	showContent(this);
+										   });
+				
+				//取消 submit 的默认行为
+				return false;
+			});
+			
+		});
+	</script>
+</head>
+<body>
+	
+	<p>你喜欢的城市是？</p>
+	<ul id="city" >
+		<li id="bj" >北京</li>
+		<li id="sh" >上海</li>
+		<li id="tj" >天津</li>
+		<li id="dj" >东京</li>
+	</ul>
+	<br/><br/><br/>
+	<p>你喜欢哪款单机游戏？</p>
+	<ul id="gram" >
+		<li id="rl" >红警</li>
+		<li>实况</li>
+		<li>极品飞车</li>
+		<li>魔兽</li>
+	</ul>
+	
+	
+	<form action="jQuery(14)-6.html" name="myform">
+	
+		<input type="radio" name="type" value="city" />城市
+		<input type="radio" name="type" value="gram" />游戏
+		
+		name:<input type="text" name="name" />
+		<input type="submit" id="submit" value="Submit" />
+	</form>
+	
+	
+</body>
+</html>
